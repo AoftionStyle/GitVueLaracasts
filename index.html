@@ -11,21 +11,29 @@
       <input id="input" type="text">
       <button id="button">Add Name</button>
   </div>
+  <div class="wrap">
+        <div class="loading"></div>
+  </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.js"></script>  
   <script>
-      var loading = document.querySelector('.loading');
-      var app = new Vue({
-          el: '#root',
-          data: {
-              names: ['A','B','C','D']
-          }
-      })
-      document.querySelector('#button').addEventListener('click', () => {
-        let name = document.querySelector('#input')
-        app.names.push(name.value)
-        name.value = ''
-      })
+    var app = new Vue({
+      el: '#root',
+      data: {
+          names: ['A','B','C','D']
+      },
+      mounted () {
+        // loading will not hide
+        var loading = document.querySelector('.loading');
+        console.log('I am now mounted to #app')
+        loading.style.display='none'
+        document.querySelector('#button').addEventListener('click', () => {
+            let name = document.querySelector('#input')
+            app.names.push(name.value)
+            name.value = ''
+        })
+      }
+    })
   </script>
 </body>
 </html>
