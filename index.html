@@ -8,8 +8,8 @@
       <ul>
           <li v-for="name in names" >{{name}}.</li>
       </ul>
-      <input id="input" type="text">
-      <button id="button">Add Name</button>
+      <input id="input" type="text" v-model="newName">
+      <button id="button" v-on:click="addName">Add Name</button>
   </div>
   <div class="wrap">
         <div class="loading"></div>
@@ -20,20 +20,33 @@
     var app = new Vue({
       el: '#root',
       data: {
-          names: ['A','B','C','D']
+        newName: '',
+        names: ['A','B','C','D']
+      },
+      methods: {
+        addName() {
+          let name = document.querySelector('#input')
+          app.names.push(name.value)
+          // name.value = ''
+          app.newName = ''
+        }
       },
       mounted () {
         // loading will not hide
         var loading = document.querySelector('.loading');
         console.log('I am now mounted to #app')
         loading.style.display='none'
+        /*
         document.querySelector('#button').addEventListener('click', () => {
-            let name = document.querySelector('#input')
-            app.names.push(name.value)
-            name.value = ''
+          let name = document.querySelector('#input')
+          app.names.push(name.value)
+          name.value = ''
         })
+        */
+        
       }
     })
+    
   </script>
 </body>
 </html>
