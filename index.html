@@ -25,9 +25,7 @@
       },
       methods: {
         addName() {
-          let name = document.querySelector('#input')
-          app.names.push(name.value)
-          // name.value = ''
+          app.names.push(app.newName)
           app.newName = ''
         }
       },
