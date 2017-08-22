@@ -7,7 +7,11 @@
 <body>
     <div id="root">
         <h2>All Tasks</h2>
+        <ul>
+            <li v-for="task in tasks" v-text="task.description" v-if="task.complete"></li>
+        </ul>
 
+        
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.js"></script>
     
