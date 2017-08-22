@@ -8,10 +8,13 @@
     <div id="root">
         <h2>All Tasks</h2>
         <ul>
-            <li v-for="task in tasks" v-text="task.description" v-if="task.complete"></li>
+            <li v-for="task in tasks" v-text="task.description" ></li>
         </ul>
 
-        
+        <h2>Incomplete Tasks</h2>
+        <ul>
+            <li v-for="task in IncompleteTasks" v-text="task.description" ></li>
+        </ul>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.js"></script>
     
@@ -25,6 +28,16 @@
                     { description: "three", complete:true },
                     { description: "four", complete:false},
                 ]
+            },
+            computed: {
+                IncompleteTasks() {
+                    return this.tasks.filter(task => !task.complete)
+
+                    // or
+                    // return this.tasks.filter( function (task) {
+                    //     return !task.complete
+                    // })
+                }
             }
         })
     </script>
