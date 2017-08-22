@@ -5,8 +5,25 @@
     <title></title>
 </head>
 <body>
+    <div id="root">
+        <h2>All Tasks</h2>
 
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.js"></script>
     
+    <script>
+        var app = new Vue({
+            el: '#root',
+            data: {
+                tasks: [
+                    { description: "one", complete:true },
+                    { description: "two", complete:false },
+                    { description: "three", complete:true },
+                    { description: "four", complete:false},
+                ]
+            }
+        })
+    </script>
+
 </body>
 </hmtl>
