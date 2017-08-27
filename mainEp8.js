@@ -1,3 +1,4 @@
+/* laracasts Vue 2 Step by Step ep8-9 */
 Vue.component('message', {
     props: ['title','body'],
     data() {
