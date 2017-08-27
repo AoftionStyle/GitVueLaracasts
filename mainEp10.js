@@ -8,10 +8,15 @@ Vue.component('modal', {
           <p style="color:red">This is a paragraph.</p>
         </div>
       </div>
+
+      <button class="modal-close"></button> 
     </div>
   `
 })
 
 new Vue({
-  el: '#root'
+  el: '#root',
+  data: {
+    showModal: false
+  }
 })
